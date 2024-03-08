@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import HomePage from './Components/HomePage.js';
+import Admin from './Components/Admin.js';
 
 
 
@@ -12,7 +12,7 @@ const App = () => {
 
       <Routes>
 
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/Admin" element={<Admin />} />
   
 
       </Routes>

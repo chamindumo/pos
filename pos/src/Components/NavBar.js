@@ -1,5 +1,7 @@
 // NavBar.js
 import React, { useState } from 'react';
+import Admin from './Admin.css';
+import img_Dashboard from './img_dashbord.png';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -9,8 +11,12 @@ const NavBar = () => {
         // Handle the click event here (e.g., navigate to another page, toggle a menu, etc.)
         setIsSidePanelOpen(!isSidePanelOpen);
     };
+    const handleclick = () => {
+      console.log('Button clicked!');
+    // You can call other functions or perform any action here
+  };
     const navStyle = {
-        background: '#2B7BA8',
+        background: '#91bfee',
         padding: '10px',
         display: 'flex',
         justifyContent: 'flex-start', // Align items to the right
@@ -41,9 +47,46 @@ const NavBar = () => {
 
     {/* Render the side panel based on the state */}
     {isSidePanelOpen && (
-      <div style={{ width: '200px', height: '100vh', background: '#f0f0f0', position: 'fixed', top: 0, left: 0, zIndex: 1 }}>
-        {/* Add content for the side panel */}
-        <p>Side Panel Content</p>
+      <div style={{ width: '200px', height: '100vh', background: '#91bfee', position: 'fixed', top: 0, left: 0, zIndex: 1 }}>
+        <div className='Sidebar'>
+        <button
+          className={Admin.Btn_side}
+          onClick={handleclick}
+          style={{
+          backgroundColor: '#4297eb',
+          color: 'white',
+          padding: '15px 32px',
+          textAlign: 'center',
+          textDecoration: 'none',
+          display: 'inline-block',
+          fontSize: '16px',
+          margin: '4px 2px',
+          cursor: 'pointer'
+    }}
+>
+  DASHBOARD
+</button>
+<button
+          className={Admin.Btn_side}
+          onClick={handleclick}
+          style={{
+          backgroundColor: '#4297eb',
+          color: 'white',
+          padding: '15px 32px',
+          textAlign: 'center',
+          textDecoration: 'none',
+          display: 'inline-block',
+          fontSize: '16px',
+          margin: '4px 2px',
+          cursor: 'pointer'
+    }}
+>
+  ITEMS
+</button>
+
+
+        </div>
+        
       </div>
     )}
 
@@ -55,7 +98,7 @@ const NavBar = () => {
         marginLeft: isSidePanelOpen ? '200px' : 0,
         position: 'absolute',
         zIndex: 2,
-        backgroundColor: '#2B7BA8', // Background color behind the icon
+        backgroundColor: '#91bfee', // Background color behind the icon
         width: '100%', // Set the width of the icon container
         height:'35px',
       }}
