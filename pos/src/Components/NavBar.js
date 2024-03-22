@@ -1,6 +1,7 @@
 // NavBar.js
 import React, { useState } from 'react';
 import Admin from './Admin.css';
+//import './Table.ccs';
 import img_Dashboard from './img_dashbord.png';
 import { Link } from 'react-router-dom';
 
