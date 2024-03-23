@@ -19,7 +19,7 @@ const NavBar = () => {
   console.log('Button clicked!');
   const data = [
     { id: 1, name: 'Alice', age: 40},
-    { id: 2, name: 'Bob', age: 28 },
+    { id: 2, name: 'Bob', age: 38 },
     { id: 3, name: 'Charlie', age: 40 },
   ];
   setTableData(data); // Set table data
