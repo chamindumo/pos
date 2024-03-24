@@ -4,6 +4,7 @@ import Admin from './Components/Admin.js';
 import Login from './Components/Login';
 import ForgotPassword from './Components/Forgot_password';
 import Addnewuser from './Components/Addnewuser.js';
+import SignUp from './Components/SignUp.js';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -16,7 +17,8 @@ const App = () => {
         <Route path="/Admin" element={<Admin />} />
         <Route path="/" element={<Login />} />
         <Route path="/forgot_password" element={<ForgotPassword />} />
-        <Route path="/Addnewuser" element={<Addnewuser/>}/>  
+        <Route path="/Addnewuser" element={<SignUp/>}/>  
+
 
       </Routes>
     </Router>
