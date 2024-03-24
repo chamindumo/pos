@@ -22,6 +22,15 @@ const fetchDataFromFirebase = async () => {
   return data.docs.map(doc => doc.data());
 };
 
+const decrypt = (ciphertext, key) => {
+  let plaintext = '';
+  for (let i = 0; i < ciphertext.length; i++) {
+    const charCode = ciphertext.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+    plaintext += String.fromCharCode(charCode);
+  }
+  return plaintext;
+};
+
 const FirebaseDataComponent = () => {
   const [firebaseData, setFirebaseData] = useState([]);
   const [username, setUsername] = useState('');
@@ -46,16 +55,18 @@ const FirebaseDataComponent = () => {
     setPassword(e.target.value);
   };
   const handleLogin = () => {
-    const user = firebaseData.find(user => user.username === username && user.password === password);
+    const user = firebaseData.find(user => user.username === username);
     if (user) {
-      // Login successful
-      setError('');
-      navigate('/Admin');
-      // Perform navigation or any other action for successful login
-    } else {
-      // Login failed
-      setError('Invalid username or password');
+      const decryptedPassword = decrypt(user.password, user.username);
+      if (decryptedPassword === password) {
+        // Login successful
+        setError('');
+        navigate('/Admin');
+        return;
+      }
     }
+    // Login failed
+    setError('Invalid username or password');
   };
 
   return (
@@ -68,9 +79,8 @@ const FirebaseDataComponent = () => {
         <input type="password" value={password} onChange={handlePasswordChange} placeholder='Password'/>
       </div>
       <button onClick={handleLogin}>Login</button>
-
+      {error && <div>{error}</div>}
     </div>
   );
 };
-
 export default FirebaseDataComponent;

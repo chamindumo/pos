@@ -1,0 +1,14 @@
+.button {
+    margin-right: calc((100% - (4 * 100px)) / 2); 
+    display: 'inline-block';
+    width: 100px; 
+    margin-right: 10px;
+    background-color: #2f74e2; /* Green */
+    border: blue;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
