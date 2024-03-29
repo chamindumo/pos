@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.sidebar{
+  color: #fff;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  color: #fff;
+  padding: 10px;
+}
+.logo-icon{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: medium;
+  border-radius: 50%;
+  background: rgb(from color r g b);
+}
