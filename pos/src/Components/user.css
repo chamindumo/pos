@@ -82,7 +82,7 @@ tbody tr:hover {
 }
 
 .ol ol li:before {
-  content: counter(listItem);
+  content: (listItem);
   counter-increment: listItem;
   margin-right: 5px; /* Adjust margin as needed */
 }
@@ -100,6 +100,12 @@ tbody tr:hover {
   justify-content: flex-end;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.addtolist input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  margin-right: 10px;
 }
 
 .addtolist button {

@@ -25,6 +25,7 @@ const User = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedItem, setSelectedItem] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [itemList, setItemList] = useState([]);
   const [allItems, setAllItems] = useState([]);
   const [money, setMoney] = useState("");
@@ -48,15 +49,15 @@ const User = () => {
   useEffect(() => {
     // Calculate total price
     const total = itemList.reduce(
-      (acc, item) => acc + parseFloat(item.price),
+      (acc, item) => acc + parseFloat(item.price) * item.quantity,
       0
     );
-    setTotalPrice(total);
+    setTotalPrice(total.toFixed(2));
 
     // Calculate changes
     if (money !== "") {
       const moneyValue = parseFloat(money);
-      const changesValue = moneyValue - total;
+      const changesValue = (moneyValue - total).toFixed(2);
       setChanges(changesValue);
     }
 
@@ -76,8 +77,9 @@ const User = () => {
 
   const handleAddToList = () => {
     if (selectedItem) {
-      setItemList([...itemList, selectedItem]);
+      setItemList([...itemList, { ...selectedItem, quantity }]); // Include quantity
       setSelectedItem("");
+      setQuantity(1); // Reset quantity to 1
     }
   };
 
@@ -179,8 +181,10 @@ const User = () => {
 
   const handleSubmit = async () => {
     // Determine the selected payment method
-    const paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
-  
+    const paymentMethod = document.querySelector(
+      'input[name="payment-method"]:checked'
+    )?.value;
+
     // Send order details to the Firebase database
     try {
       const docRef = await addDoc(collection(db, "orders"), {
@@ -258,6 +262,12 @@ const User = () => {
         </div>
 
         <div className="addtolist">
+          <input
+            type="number"
+            min="1"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
           {/* Add to List */}
           <button onClick={handleAddToList} className="addbtn">
             Add to List
@@ -273,7 +283,7 @@ const User = () => {
             <ol>
               {itemList.map((item, index) => (
                 <li key={index}>
-                  {item.itemname} {item.price}
+                  {item.itemname} {item.price} x {item.quantity}{" "}
                   <img
                     src={removeIcon}
                     alt="Remove"
@@ -306,16 +316,15 @@ const User = () => {
           </div>
 
           <div className="payment-methods">
-  <label>
-    <input type="radio" name="payment-method" value="cash" />
-    Cash
-  </label>
-  <label>
-    <input type="radio" name="payment-method" value="card" />
-    Card
-  </label>
-</div>
-
+            <label>
+              <input type="radio" name="payment-method" value="cash" />
+              Cash
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="card" />
+              Card
+            </label>
+          </div>
 
           <div className="submit-buttons">
             <button onClick={handleSubmit} className="submit">
