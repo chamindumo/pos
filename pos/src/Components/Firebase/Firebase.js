@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
+// firebase.js (less recommended, avoid default exports for clarity)
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDEZFiBz7qdsjEY8TVIFia-eTj7-tTRLHs",
@@ -11,7 +11,8 @@ const firebaseConfig = {
     messagingSenderId: "947884349220",
     appId: "1:947884349220:web:3a38f5908fb5cc8cca05b1"
 };
- 
-const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export default { firebaseConfig, db }; // Export both as an object

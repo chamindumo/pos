@@ -1,0 +1,160 @@
+.cnt {
+  display: flex;
+  background: #9ce8ff;
+}
+
+.leftcontainer {
+  flex: 0 0 63%;
+  background: #dff6f8;
+  padding-top: 60px;
+  margin: 5px;
+}
+
+.rightcontainer {
+  flex: 0 0 36%;
+  background: #88b4cb;
+  padding-top: 60px;
+  margin: 3px;
+}
+
+.rightcontainer-sub {
+  margin: 10px;
+}
+
+/* Table container styles */
+.table-container {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+}
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+/* Table header styles */
+thead {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+/* Table header cell styles */
+th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table body row styles */
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Table body cell styles */
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Alternate row background color */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Highlight on row click */
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+.ol {
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.ol ol {
+  padding-left: 20px; /* Adjust padding as needed */
+}
+
+.ol ol li {
+  margin-bottom: 5px; /* Adjust margin as needed */
+  position: relative;
+}
+
+.ol ol li:before {
+  content: counter(listItem);
+  counter-increment: listItem;
+  margin-right: 5px; /* Adjust margin as needed */
+}
+
+.ol ol li img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.addtolist {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.addtolist button {
+  background-color: rgb(58, 58, 160);
+  color: white;
+  margin-right: 10px;
+}
+
+.submit-buttons {
+  margin-top: 20px;
+}
+
+.submit-buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.submit-buttons button:hover {
+  opacity: 0.8;
+}
+
+.submit-buttons button.print {
+  background-color: rgb(211, 63, 63);
+  color: white;
+}
+
+.submit-buttons button.submit {
+  background-color: rgb(58, 58, 160);
+  color: white;
+}
+
+.submit-buttons button.cancel {
+  background-color: gray;
+  color: white;
+}
+
+.invoice-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.info-title {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.info-value {
+  flex: 1;
+}
