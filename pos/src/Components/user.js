@@ -9,7 +9,6 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-
 import { useNavigate } from "react-router-dom";
 import Usercss from "./user.css";
 import removeIcon from "../Components/Assests/remove.png";
