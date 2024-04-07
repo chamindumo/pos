@@ -1,18 +1,18 @@
 .cnt {
   display: flex;
-  background: #9ce8ff;
+  background: #29eb39;
 }
 
 .leftcontainer {
   flex: 0 0 63%;
-  background: #dff6f8;
+  background: #c5fdba;
   padding-top: 60px;
   margin: 5px;
 }
 
 .rightcontainer {
   flex: 0 0 36%;
-  background: #88b4cb;
+  background: #c5fdba;
   padding-top: 60px;
   margin: 3px;
 }
@@ -35,7 +35,7 @@ table {
 }
 /* Table header styles */
 thead {
-  background-color: #f2f2f2;
+  background-color: #29eb39;
   position: sticky;
   top: 0;
 }
@@ -58,9 +58,8 @@ td {
   cursor: pointer;
 }
 
-/* Alternate row background color */
-tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
+.selected {
+  background-color: rgb(151, 241, 226); /* Change this to whatever highlighting style you prefer */
 }
 
 /* Highlight on row click */
@@ -109,9 +108,13 @@ tbody tr:hover {
 }
 
 .addtolist button {
-  background-color: rgb(58, 58, 160);
+  background-color: #0aa517;
   color: white;
   margin-right: 10px;
+}
+
+.addtolist button:hover {
+  opacity: 0.8;
 }
 
 .submit-buttons {
@@ -132,17 +135,17 @@ tbody tr:hover {
 }
 
 .submit-buttons button.print {
-  background-color: rgb(211, 63, 63);
+  background-color: #fc5555;
   color: white;
 }
 
 .submit-buttons button.submit {
-  background-color: rgb(58, 58, 160);
+  background-color: #0aa517;
   color: white;
 }
 
 .submit-buttons button.cancel {
-  background-color: gray;
+  background-color: #444444;
   color: white;
 }
 
@@ -163,4 +166,38 @@ tbody tr:hover {
 
 .info-value {
   flex: 1;
+}
+
+/* Styles for the Stocks container */
+.stockDiv {
+  display: flex;
+  flex-direction: column;
+  background: #29eb39;
+}
+
+/* Styles for the Stock Table */
+.stocktable {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.stocktable th,
+.stocktable td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.stocktable th {
+  background-color: #f2f2f2; /* Header background color */
+  font-weight: bold;
+  text-align: left;
+}
+
+.stocktable tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* Alternate row background color */
+}
+
+.stocktable tbody tr:hover {
+  background-color: #ddd; /* Hover row background color */
 }

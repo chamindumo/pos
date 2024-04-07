@@ -32,6 +32,7 @@ const User = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [changes, setChanges] = useState(0);
   const [dateTime, setDateTime] = useState("");
+  const [selectedItemId, setSelectedItemId] = useState(null); // Declare selectedItemId state
 
   useEffect(() => {
     // Fetch all items from Firestore
@@ -73,12 +74,14 @@ const User = () => {
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    setSelectedItemId(item.id); // Set selectedItemId when an item is clicked
   };
 
   const handleAddToList = () => {
     if (selectedItem) {
       setItemList([...itemList, { ...selectedItem, quantity }]); // Include quantity
       setSelectedItem("");
+      setSelectedItemId(null); // Reset selectedItemId when adding item to list
       setQuantity(1); // Reset quantity to 1
     }
   };
@@ -94,9 +97,14 @@ const User = () => {
   };
 
   const handleCancel = () => {
-    setItemList([]);
-    setMoney("");
-    setChanges(0);
+    const confirmCancel = window.confirm(
+      "Are you sure you want to cancel? This action will clear all data."
+    );
+    if (confirmCancel) {
+      setItemList([]);
+      setMoney("");
+      setChanges(0);
+    }
   };
 
   const handlePrint = () => {
@@ -185,6 +193,12 @@ const User = () => {
       'input[name="payment-method"]:checked'
     )?.value;
 
+    // Check if any essential value is null
+    if (!itemList || !totalPrice || !money || !changes || !paymentMethod) {
+      alert("Please fill in all required fields before submitting the order.");
+      return; // Don't submit if any essential value is null
+    }
+
     // Send order details to the Firebase database
     try {
       const docRef = await addDoc(collection(db, "orders"), {
@@ -248,7 +262,11 @@ const User = () => {
                     item.price.toString().includes(searchTerm)
                 )
                 .map((item) => (
-                  <tr key={item.id} onClick={() => handleItemClick(item)}>
+                  <tr
+                    key={item.id}
+                    onClick={() => handleItemClick(item)}
+                    className={selectedItemId === item.id ? "selected" : ""}
+                  >
                     <td>{item.itemname}</td>
                     <td>{item.brand}</td>
                     <td>{item.category}</td>
@@ -280,38 +298,52 @@ const User = () => {
         <div className="rightcontainer-sub">
           <h3>Ordered Item List</h3>
           <div className="ol">
-            <ol>
-              {itemList.map((item, index) => (
-                <li key={index}>
-                  {item.itemname} {item.price} x {item.quantity}{" "}
-                  <img
-                    src={removeIcon}
-                    alt="Remove"
-                    onClick={() => handleRemoveItem(index)}
-                  />
-                </li>
-              ))}
-            </ol>
+            <table>
+              <thead>
+                <tr>
+                  <th>Item Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {itemList.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.itemname}</td>
+                    <td>{item.price}</td>
+                    <td>{item.quantity}</td>
+                    <td>
+                      <img
+                        src={removeIcon}
+                        alt="Remove"
+                        onClick={() => handleRemoveItem(index)}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
-          <div class="invoice-info">
-            <div class="info-row">
-              <div class="info-title">Total Price:</div>
-              <div class="info-value">{totalPrice}</div>
+          <div className="invoice-info">
+            <div className="info-row">
+              <div className="info-title">Total Price:</div>
+              <div className="info-value">{totalPrice}</div>
             </div>
-            <div class="info-row">
-              <div class="info-title">Money:</div>
-              <div class="info-value">
+            <div className="info-row">
+              <div className="info-title">Money:</div>
+              <div className="info-value">
                 <input type="text" value={money} onChange={handleMoneyChange} />
               </div>
             </div>
-            <div class="info-row">
-              <div class="info-title">Changes:</div>
-              <div class="info-value">{changes}</div>
+            <div className="info-row">
+              <div className="info-title">Changes:</div>
+              <div className="info-value">{changes}</div>
             </div>
-            <div class="info-row">
-              <div class="info-title">Order Date Time:</div>
-              <div class="info-value">{dateTime}</div>
+            <div className="info-row">
+              <div className="info-title">Order Date Time:</div>
+              <div className="info-value">{dateTime}</div>
             </div>
           </div>
 
