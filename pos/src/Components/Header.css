@@ -1,0 +1,23 @@
+nav {
+    height: 50px;
+    border: 1px solid rgb(200, 220, 220); 
+}
+
+.div-header{
+    width: 80px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-png {
+    height: 30px;
+    width: 30px;
+    padding: 0 20px;
+}
+
+.button-header{
+    
+}
