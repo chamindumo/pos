@@ -1,23 +1,61 @@
 nav {
+    background-color: #fff;
+
+}
+
+.header {
+    background-color: #278ab5;
+    width: auto;
     height: 50px;
-    border: 1px solid rgb(200, 220, 220); 
+    color: #fff;
+    border: none;
+    position: relative;
 }
 
-.div-header{
-    width: 80px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.header-line {
+    height: 2px;
+    background-color: #ccc;
+}
+
+.profile-image-button {
+    width: 50px;
+    /* Adjust the width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    /* Adjust the distance from the right side */
+}
+
+.profile-popup {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 20px;
+    background-color: #278ab5;
+    border: 1px solid #278ab5;
+    padding: 10px;
+    z-index: 1;
+}
+
+.sidebar {
+    background-color: #278ab5;
+    color: #fff;
+    width: 140px;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+}
+.sidebar-button {
+    background-color: #07293a;
+    width: 130px;
+    height: 60px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     align-items: center;
-}
-
-.div-png {
-    height: 30px;
-    width: 30px;
-    padding: 0 20px;
-}
-
-.button-header{
-    
 }

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Admin from './Components/Admin.js';
 import Login from './Components/Login';
