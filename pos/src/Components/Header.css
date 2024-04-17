@@ -18,16 +18,13 @@ nav {
 }
 
 .profile-image-button {
-    width: 50px;
-    /* Adjust the width as needed */
+    width: 30px;
     height: auto;
-    /* Maintain aspect ratio */
     cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 20px;
-    /* Adjust the distance from the right side */
 }
 
 .profile-popup {
@@ -50,12 +47,22 @@ nav {
     left: 0;
 }
 .sidebar-button {
-    background-color: #07293a;
+    background-color: #155778;
+    align-items: center;
     width: 130px;
-    height: 60px;
+    height: 70px;
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-left: 5px;
     margin-right: 5px;
     align-items: center;
 }
+
+.sidebar-icon {
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    align-items:start;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
