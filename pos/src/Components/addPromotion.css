@@ -1,0 +1,52 @@
+/* addPromotion.css */
+
+.promotion-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .promotion-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .promotion-form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .promotion-form-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .promotion-form-container form label {
+    font-weight: bold;
+  }
+  
+  .promotion-form-container form input[type="text"],
+  .promotion-form-container form textarea {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .promotion-form-container form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .promotion-form-container form button:hover {
+    background-color: #0056b3;
+    
+  }
+  

@@ -7,6 +7,15 @@ import AddUserIcon from '../Components/Assests/adduser.png';
 import StockIcon from '../Components/Assests/stock.png';
 import BankIcon from '../Components/Assests/bank.png';
 import DiscountIcon from '../Components/Assests/discount.png';
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    Timestamp,
+    query,
+    where,
+    getDocs,
+  } from "firebase/firestore";
 
 import './Header.css';
 

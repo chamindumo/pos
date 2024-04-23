@@ -7,6 +7,8 @@ import SignUp from './Components/SignUp.js';
 import Additems from './Components/additems.js';
 import AddStocks from './Components/addstocks.js';
 import CheckStocks from './Components/checkstocks.js';
+import AddPromotion from './Components/addPromotion.js';
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -23,6 +25,7 @@ const App = () => {
         <Route path='/Additems' element={<Additems/>}/>
         <Route path='/AddStocks' element={<AddStocks/>}/>        
         <Route path='/CheckStocks' element={<CheckStocks/>}/>
+        <Route path='/AddPromotion' element={<AddPromotion/>}/>
       </Routes>
     </Router>
   );
